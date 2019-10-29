@@ -1,0 +1,38 @@
+# npm related
+node_modules
+npm-debug.log
+yarn-error.log
+package-lock.json
+lerna-debug.log
+
+# OS and editors related
+.DS_Store
+.vimsession
+.idea/
+.tern-project
+.vscode
+.cache
+.vagrant/
+v8-compile-cache-0/
+
+# generated folders
+dist
+dist-*
+coverage
+build
+umd
+styleguide-build
+flow-coverage
+lib-es
+tsbuildinfo/
+buildcache/
+
+# local project configuration
+config.json
+
+# npm hook opt in/out
+.opt-in
+.opt-out
+
+# docs generated files
+_book

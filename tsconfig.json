@@ -1,0 +1,71 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": false,
+    "alwaysStrict": true,
+    "baseUrl": "./src",
+    "checkJs": true,
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "incremental": true,
+    "isolatedModules": false,
+    "jsx": "react",
+    "lib": [
+      "es5",
+      "es6",
+      "es7",
+      "es2015.core",
+      "es2015.collection",
+      "es2015.promise",
+      "es2015.generator",
+      "es2015.iterable",
+      "es2016.array.include",
+      "esnext.asynciterable",
+      "es2017",
+      "es2017.string",
+      "es2018",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ],
+    "module": "esNext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "preserveConstEnums": true,
+    "pretty": true,
+    "removeComments": false,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "target": "esnext",
+    "tsBuildInfoFile": "./buildcache/front-end",
+    "paths": {
+      "@atoms": ["./components/atoms"],
+      "@theme": ["./theme"],
+    },
+  },
+  "exclude": [
+    "./node_modules/",
+    "./dist/"
+  ],
+  "include": [
+    "./d.ts/**/*",
+    "./src/**/*",
+    "./stories/**/*",
+  ],
+  "plugins": [
+    {
+      "lint": {
+        "duplicateProperties": "warning",
+        "unknownProperties": "ignore",
+        "vendorPrefix": "warning",
+        "zeroUnits": "ignore"
+      },
+      "name": "typescript-styled-plugin"
+    }
+  ]
+}

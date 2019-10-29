@@ -1,0 +1,108 @@
+{
+  "name": "react-starter",
+  "version": "0.0.0",
+  "description": "React starter project",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "contributors": [
+    "Matteo Ronchi <mronchi@workwave.com> (http://www.workwave.com/)"
+  ],
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "prettier": "prettier",
+    "lint-staged": "lint-staged",
+    "ts": "tsc -p ./tsconfig.json",
+    "lint": "eslint -c ./.eslintrc.js . --ext .js,.ts,.tsx",
+    "format": "prettier --write '{src,__{tests,mocks}__,tests,stories}/**/*.{js,ts,tsx}'",
+    "validate": "yarn ts && yarn lint",
+    "clean": "rimraf lib lib-es umd dist",
+    "ci": "yarn validate && yarn clean && yarn build",
+    "_______________________________________________________": "",
+    "build:umd": "cross-env NODE_ENV=production webpack --config ./webpack.config.umd.js --display-error-details",
+    "prebuild": "yarn clean",
+    "build": "yarn build:umd",
+    "build-and-run": "yarn build && yarn http-server dist",
+    "________________________________________________________": "",
+    "start": "cross-env NODE_ENV=development node --max_old_space_size=4096 node_modules/.bin/webpack-dev-server --config ./webpack.config.js",
+    "_________________________________________________________": "",
+    "storybook": "start-storybook -s ./stories/static -p 9009 --ci"
+  },
+  "dependencies": {
+    "intl": "1.2.5",
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
+    "react-intl": "3.4.0",
+    "react-redux": "7.1.1",
+    "redux": "4.0.4",
+    "redux-saga": "1.1.1",
+    "redux-thunk": "2.3.0",
+    "styled-components": "4.4.0",
+    "tslib": "1.10.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.6.4",
+    "@storybook/addon-backgrounds": "5.2.5",
+    "@storybook/addon-docs": "5.2.5",
+    "@storybook/addon-knobs": "5.2.5",
+    "@storybook/addon-notes": "5.2.5",
+    "@storybook/addon-storysource": "5.2.5",
+    "@storybook/addon-viewport": "5.2.5",
+    "@storybook/react": "5.2.5",
+    "@types/react": "16.9.11",
+    "@types/react-dom": "16.9.3",
+    "@types/styled-components": "4.1.20",
+    "@typescript-eslint/eslint-plugin": "2.6.0",
+    "@typescript-eslint/parser": "2.6.0",
+    "babel-loader": "8.0.6",
+    "copy-webpack-plugin": "5.0.4",
+    "cross-env": "6.0.3",
+    "cz-conventional-changelog": "3.0.2",
+    "eslint": "6.6.0",
+    "eslint-config-prettier": "6.5.0",
+    "eslint-plugin-prettier": "3.1.1",
+    "eslint-plugin-react": "7.16.0",
+    "eslint-plugin-react-hooks": "2.2.0",
+    "generate-changelog": "1.8.0",
+    "html-webpack-plugin": "3.2.0",
+    "http-server": "0.11.1",
+    "husky": "3.0.9",
+    "lint-staged": "9.4.2",
+    "mini-css-extract-plugin": "0.8.0",
+    "optimize-css-assets-webpack-plugin": "5.0.3",
+    "prettier": "1.18.2",
+    "react-docgen-typescript-loader": "3.3.0",
+    "rimraf": "3.0.0",
+    "style-loader": "1.0.0",
+    "terser-webpack-plugin": "2.2.1",
+    "ts-loader": "6.2.1",
+    "tsconfig-paths-webpack-plugin": "3.2.0",
+    "typescript": "3.6.4",
+    "typescript-styled-plugin": "0.15.0",
+    "webpack": "4.41.2",
+    "webpack-cli": "3.3.9",
+    "webpack-dev-server": "3.9.0"
+  },
+  "lint-staged": {
+    "{packages,local}/**/{src,scripts,__{tests,mocks}__,tests,static-assets}/**/*.{js,ts,tsx,json,md}": [
+      "yarn prettier -- --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn validate"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "engines": {
+    "node": ">=12.3.1",
+    "npm": ">=6.9",
+    "yarn": ">=1.16.0"
+  }
+}

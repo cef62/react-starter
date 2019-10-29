@@ -1,0 +1,25 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "sourceMap": true,
+    "noEmit": false,
+    "emitDeclarationOnly": false,
+    "allowJs": false,
+    "checkJs": false,
+    "declaration": true,
+    "rootDir": "../",
+    "outDir": "lib",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "strict": true,
+    "jsx": "react",
+    "noUnusedLocals": false,
+    "paths": {
+      "@atoms": ["./src/components/atoms"],
+      "@theme": ["./src/theme"],
+    }
+  },
+  "include": ["../src/**/*", "../.storybook/**/*", "../d.ts/**/*",],
+  "exclude": ["node_modules", "buildcache", "scripts"]
+}
